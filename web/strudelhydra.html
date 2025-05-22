@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strudel + Hydra Live Coding</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+    }
+    #editor, #hydra-canvas {
+      flex: 1;
+      height: 100%;
+    }
+    textarea {
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: lime;
+      border: none;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Strudel Code Editor -->
+  <div id="editor">
+    <textarea id="strudel-code">
+// Example Strudel code
+play("bd sn bd sn")
+    </textarea>
+    <button onclick="runStrudel()">Run Strudel</button>
+  </div>
+
+  <!-- Hydra Output -->
+  <canvas id="hydra-canvas"></canvas>
+
+  <!-- Include Hydra -->
+  <script src="https://unpkg.com/hydra-synth"></script>
+
+  <!-- Include Strudel -->
+  <script type="module">
+    import { startStrudel } from "https://cdn.jsdelivr.net/npm/@strudel-cc/strudel@latest/+esm";
+
+    let strudel;
+    async function initStrudel() {
+      strudel = await startStrudel();
+    }
+    window.runStrudel = () => {
+      const code = document.getElementById("strudel-code").value;
+      strudel.run(code);
+    };
+
+    initStrudel();
+
+    // Hydra setup
+    const hydra = new Hydra({
+      canvas: document.getElementById("hydra-canvas"),
+      detectAudio: false // or true if you want to sync visuals to Strudel audio
+    });
+
+    // Example visuals
+    osc(10, 0.1, 1.2).rotate(0.3).out();
+  </script>
+
+</body>
+</html>
