@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Design Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation for switching between examples */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(0,0,0,0.1);
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* Hide all examples by default */
+        .example {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .example.active {
+            display: block;
+        }
+
+        /* ===== EXAMPLE 1: MONOCHROME PORTFOLIO ===== */
+        .example1 {
+            background: #f8f8f8;
+            color: #222;
+        }
+
+        .example1 .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .example1 h1 {
+            font-size: 4rem;
+            font-weight: 100;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .example1 .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .example1 .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .example1 .card {
+            background: white;
+            padding: 40px;
+            border-radius: 2px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .example1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+
+        .example1 .card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .example1 .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ===== EXAMPLE 2: BLUE GRADIENT TECH ===== */
+        .example2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .example2 .hero {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .example2 h1 {
+            font-size: 5rem;
+            font-weight: 200;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .example2 .tagline {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .example2 .cta-button {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .example2 .cta-button:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ===== EXAMPLE 3: GREEN NATURE BLOG ===== */
+        .example3 {
+            background: #fafafa;
+            color: #2d3748;
+        }
+
+        .example3 .header {
+            background: #f7fafc;
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .example3 .header .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .example3 .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #38a169;
+            margin-bottom: 10px;
+        }
+
+        .example3 .description {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .example3 .content {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .example3 .article {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .example3 .article:last-child {
+            border-bottom: none;
+        }
+
+        .example3 .article h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .example3 .article .meta {
+            color: #38a169;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .example3 .article p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* ===== EXAMPLE 4: DARK MODE AGENCY ===== */
+        .example4 {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .example4 .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            border-bottom: 1px solid #333;
+        }
+
+        .example4 .nav-bar .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff6b6b;
+        }
+
+        .example4 .nav-bar .menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .example4 .nav-bar .menu a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .example4 .nav-bar .menu a:hover {
+            color: #ff6b6b;
+        }
+
+        .example4 .main-content {
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .example4 .hero-text {
+            font-size: 4.5rem;
+            font-weight: 200;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .example4 .hero-text .accent {
+            color: #ff6b6b;
+        }
+
+        .example4 .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-top: 120px;
+        }
+
+        .example4 .service {
+            padding: 40px 0;
+        }
+
+        .example4 .service h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        .example4 .service p {
+            color: #999999;
+            line-height: 1.7;
+        }
+
+        /* ===== EXAMPLE 5: BEIGE MINIMAL STUDIO ===== */
+        .example5 {
+            background: #f5f2ee;
+            color: #3c3c3c;
+        }
+
+        .example5 .layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .example5 .left-panel {
+            background: #e8e1d9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px;
+        }
+
+        .example5 .studio-name {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 30px;
+            color: #8b7355;
+        }
+
+        .example5 .studio-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #5c5c5c;
+            margin-bottom: 50px;
+        }
+
+        .example5 .contact-info {
+            font-size: 1rem;
+            color: #8b7355;
+        }
+
+        .example5 .right-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 60px;
+        }
+
+        .example5 .image-placeholder {
+            width: 300px;
+            height: 400px;
+            background: #d4c4b0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b7355;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .example5 .portfolio-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .example5 .portfolio-nav button {
+            background: none;
+            border: 1px solid #8b7355;
+            color: #8b7355;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .example5 .portfolio-nav button:hover {
+            background: #8b7355;
+            color: #f5f2ee;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .example1 h1, .example2 h1, .example4 .hero-text {
+                font-size: 2.5rem;
+            }
+            
+            .example5 .layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                position: relative;
+                top: 0;
+                right: 0;
+                padding: 20px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav">
+        <button class="nav-btn" onclick="showExample(1)">Portfolio</button>
+        <button class="nav-btn" onclick="showExample(2)">Tech</button>
+        <button class="nav-btn" onclick="showExample(3)">Blog</button>
+        <button class="nav-btn" onclick="showExample(4)">Agency</button>
+        <button class="nav-btn" onclick="showExample(5)">Studio</button>
+    </div>
+
+    <!-- Example 1: Monochrome Portfolio -->
+    <div class="example example1 active">
+        <div class="container">
+            <h1>Sarah Chen</h1>
+            <p class="subtitle">Product Designer & Creative Director</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Digital Experiences</h3>
+                    <p>Crafting intuitive user interfaces that bridge the gap between human needs and digital possibilities.</p>
+                </div>
+                <div class="card">
+                    <h3>Brand Identity</h3>
+                    <p>Developing cohesive visual languages that tell authentic stories and create lasting connections.</p>
+                </div>
+                <div class="card">
+                    <h3>Strategy</h3>
+                    <p>Aligning design decisions with business objectives through research-driven methodologies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 2: Blue Gradient Tech -->
+    <div class="example example2">
+        <div class="hero">
+            <h1>Nexus</h1>
+            <p class="tagline">The future of connected experiences</p>
+            <button class="cta-button">Explore Platform</button>
+        </div>
+    </div>
+
+    <!-- Example 3: Green Nature Blog -->
+    <div class="example example3">
+        <div class="header">
+            <div class="container">
+                <div class="logo">Verdant</div>
+                <p class="description">Thoughts on sustainable living and natural design</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <article class="article">
+                <h2>Minimalism in Nature</h2>
+                <div class="meta">March 15, 2024</div>
+                <p>There's a profound simplicity in natural systems that we can learn from. The way a tree grows, the pattern of leaves, the flow of water—all demonstrate efficient, beautiful design.</p>
+                <p>In our built environments, we often overcomplicate. Nature shows us that the most elegant solutions are often the simplest ones.</p>
+            </article>
+            
+            <article class="article">
+                <h2>The Space Between</h2>
+                <div class="meta">March 8, 2024</div>
+                <p>Negative space isn't empty—it's full of potential. In Japanese aesthetics, ma represents the pregnant pause, the meaningful gap.</p>
+                <p>When we embrace emptiness in design, we create room for the essential to breathe and be noticed.</p>
+            </article>
+        </div>
+    </div>
+
+    <!-- Example 4: Dark Mode Agency -->
+    <div class="example example4">
+        <nav class="nav-bar">
+            <div class="logo">Void</div>
+            <div class="menu">
+                <a href="#">Work</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+        
+        <div class="main-content">
+            <h1 class="hero-text">
+                We create <span class="accent">exceptional</span> digital experiences
+            </h1>
+            
+            <div class="services">
+                <div class="service">
+                    <h3>Strategy</h3>
+                    <p>Research-driven approaches that align business objectives with user needs and market opportunities.</p>
+                </div>
+                <div class="service">
+                    <h3>Design</h3>
+                    <p>Thoughtful interfaces that prioritize usability while maintaining visual sophistication and brand coherence.</p>
+                </div>
+                <div class="service">
+                    <h3>Development</h3>
+                    <p>Modern web technologies implemented with performance, accessibility, and scalability in mind.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 5: Beige Minimal Studio -->
+    <div class="example example5">
+        <div class="layout">
+            <div class="left-panel">
+                <h1 class="studio-name">Atelier Blanc</h1>
+                <p class="studio-description">
+                    A creative studio focused on timeless design principles. 
+                    We believe in the power of simplicity to create lasting impact.
+                </p>
+                <div class="contact-info">
+                    hello@atelierblanc.com<br>
+                    +1 (555) 123-4567
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="image-placeholder">
+                    Selected Work
+                </div>
+                <div class="portfolio-nav">
+                    <button>Previous</button>
+                    <button>Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showExample(num) {
+            // Hide all examples
+            const examples = document.querySelectorAll('.example');
+            examples.forEach(example => example.classList.remove('active'));
+            
+            // Show selected example
+            document.querySelector(`.example${num}`).classList.add('active');
+            
+            // Update navigation buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.style.background = 'rgba(0,0,0,0.1)');
+            buttons[num-1].style.background = 'rgba(0,0,0,0.3)';
+        }
+        
+        // Initialize first button as active
+        document.querySelector('.nav-btn').style.background = 'rgba(0,0,0,0.3)';
+    </script>
+</body>
+</html>
