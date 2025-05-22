@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Base Style */
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-shadow: 0 0 2px #00ff00;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100vh;
+    }
+
+    .terminal-line {
+      white-space: pre;
+    }
+
+    .header {
+      color: #ffff00;
+      text-shadow: 0 0 2px #ffff00;
+    }
+
+    .error {
+      color: #ff0000;
+      text-shadow: 0 0 2px #ff0000;
+    }
+
+    .highlight {
+      color: #00ffff;
+      text-shadow: 0 0 2px #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-line header">IBM 3270 TERMINAL EMULATOR</div>
+  <div class="terminal-line">--------------------------------------</div>
+  <div class="terminal-line">SYSTEM READY FOR INPUT</div>
+  <div class="terminal-line">> LOGIN USER: <span class="highlight">GUEST</span></div>
+  <div class="terminal-line">> ACCESSING MAINFRAME...</div>
+  <div class="terminal-line error">!! SECURITY NOTICE: UNAUTHORIZED ACCESS DETECTED</div>
+  <div class="terminal-line">> RUNNING SYSTEM DIAGNOSTICS █████░░░░░░ 45%</div>
+  <div class="terminal-line">--------------------------------------</div>
+  <div class="terminal-line">PRESS <span class="highlight">F1</span> FOR HELP • <span class="highlight">F3</span> TO EXIT</div>
+</body>
+</html>
