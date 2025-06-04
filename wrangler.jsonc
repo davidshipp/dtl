@@ -1,0 +1,7 @@
+{
+	    "name": "downtempolounge",
+	    "compatibility_date": "2025-06-04",
+	    "assets": {
+	      "directory": "./web"
+	    }	  
+}
